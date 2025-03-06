@@ -1,15 +1,15 @@
-let value = prompt('Qual o valor do produto?')
-let xInstallments = prompt('Deseja parcelar em quantas vezes? ')
+const value = prompt('Qual o valor do produto?')
+const xInstallments = prompt('Deseja parcelar em quantas vezes? ')
 
 function calculation(valueProduct, installments) {
-    let monthsYear = []
-    let date = new Date()
+    const monthsYear = []
+    const date = new Date()
     const installmentsValue = (valueProduct / installments).toFixed(2)
 
     for (let index = 1; index <= installments; index++) {
-        let newDate = new Date(date)
+        const newDate = new Date(date)
         newDate.setMonth(newDate.getMonth() + index)
-        let nameMonths = newDate.toLocaleString('pt-BR', {
+        const nameMonths = newDate.toLocaleString('pt-BR', {
             month: 'long',
             year: 'numeric',
         })
