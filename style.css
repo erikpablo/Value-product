@@ -116,3 +116,15 @@ nav ul li img {
 .product button:hover {
     background-color: #e68a00;
 }
+
+@media (max-width: 700px) {
+
+    .products {
+        display: flex;
+        flex-direction: column;
+        max-width: 10rem;
+
+        margin: 0 auto;
+    }
+    
+}
