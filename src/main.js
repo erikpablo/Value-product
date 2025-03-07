@@ -1,6 +1,3 @@
-const value = prompt('Qual o valor do produto?')
-const xInstallments = prompt('Deseja parcelar em quantas vezes? ')
-
 function calculation(valueProduct, installments) {
     const monthsYear = []
     const date = new Date()

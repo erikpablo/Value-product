@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --bg-button-color: #02799D;
+}
+
+body {
+    font-size: 1.6rem;
+
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #232f3e;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    padding: 1rem;
+    list-style: none;
+    
+}
+
+nav ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+nav ul li img {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.productPC {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.productPC h2 {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.products {
+    display: flex;
+    gap: 3rem;
+    min-width: max-content;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 25rem;
+}
+
+.product img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    transition: all 1s ease;
+}
+
+.product:hover img {
+    width: 15rem;
+    height: 15rem;
+}
+
+.product h2 {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+}
+.product p {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #b12704;
+}
+.product button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: .5rem;
+}
+
+.product button:hover {
+    background-color: #e68a00;
+}
