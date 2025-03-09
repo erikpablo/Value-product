@@ -27,6 +27,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 nav ul {
@@ -90,7 +92,7 @@ nav ul li img {
     transition: all 1s ease;
 }
 
-.product:hover img {
+.product img:hover  {
     width: 15rem;
     height: 15rem;
 }
@@ -115,7 +117,9 @@ nav ul li img {
 
 .product button:hover {
     background-color: #e68a00;
-}
+} 
+
+/*mobile*/
 
 @media (max-width: 700px) {
 
@@ -127,4 +131,99 @@ nav ul li img {
         margin: 0 auto;
     }
     
+}
+
+
+.hide {
+    display: none;
+}
+
+/*
+Purchase details
+*/
+
+.close {
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.close:hover {
+    font-size: 2rem;
+}
+
+@keyframes slideOn {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); 
+        opacity: 1;
+    }
+}
+
+@keyframes slideOff {
+    0% {
+        transform: translateX(0); 
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.buyContainer {
+    background: rgb(255, 255, 255);
+    padding: 2rem;
+    max-width: 40rem;
+
+    position: fixed;
+    top: 8rem;
+    right: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buyProduct {
+    text-align: center;
+}
+
+.buyProduct img {
+    width: 10rem;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.datesProduct {
+    margin-top: 1.5rem;
+}
+
+.datesProduct label {
+    font-weight: bold;
+}
+
+.datesProduct input, .datesProduct select{
+    width: 100%;
+    padding: .5rem;
+    margin-top: .5rem;
+}
+
+.btnBuy {
+    margin-top: 1.5rem;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 1.3rem;
+    min-width: 10rem;
+    cursor: pointer;
+    border-radius: .5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btnBuy:hover {
+    background-color: #e68a00;
 }
