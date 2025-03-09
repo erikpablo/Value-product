@@ -1,23 +1,50 @@
-function calculation(valueProduct, installments) {
-    const monthsYear = []
-    const date = new Date()
-    const installmentsValue = (valueProduct / installments).toFixed(2)
+let buy = document.querySelectorAll('.product button')
+let buyContainer = document.querySelector('.buyContainer')
+let close = document.querySelector('.close')
 
-    for (let index = 1; index <= installments; index++) {
-        const newDate = new Date(date)
-        newDate.setMonth(newDate.getMonth() + index)
-        const nameMonths = newDate.toLocaleString('pt-BR', {
-            month: 'long',
-            year: 'numeric',
-        })
-
-        monthsYear.push(nameMonths)
-    }
-
-    console.log(`O valor do produtor é R$ ${valueProduct}. `)
-    console.log(
-        `Parcelando em ${installments}x, ficará R$ ${installmentsValue}, os pagamentos serão nos meses: ${monthsYear}`
-    )
+function buyClick() {
+  buyContainer.classList.remove('hide')
+  buyContainer.style.animation = 'slideOn 0.5s ease-out'
+  
 }
 
-calculation(value, xInstallments)
+function closeBuy () {
+  buyContainer.style.animation = 'slideOff 0.5s ease-out' 
+
+  buyContainer.addEventListener('animationend', () => {
+    buyContainer.classList.add('hide'); 
+  }, { once: true }); 
+}
+
+
+
+// close.addEventListener('click', () => {buyContainer.classList.toggle('hide')})
+
+// function calculation(valueProduct, installments) {
+//    let valueInstallmensts = (valueProduct / installments).toFixed(2)
+
+//    let monthsYear = [];
+//    let date = new Date()
+
+//    for(let i = 1; i <= installments; i++) {
+//         let newDate = new Date(date)
+//         newDate.setMonth(newDate.getMonth() + i);
+//         let monthsYearString = newDate.toLocaleString("pt-BR", { day: "numeric", month: "long", year: "numeric" })
+//         monthsYear.push(monthsYearString)
+//    }
+
+//     console.log(`O valor do produto é ${valueProduct}, pode ser parcelado em ${installments} de ${valueInstallmensts} nos meses ${monthsYear}`)
+// }
+
+
+// calculation(1000, 12)
+
+
+
+
+
+// biome-ignore lint/complexity/noForEach: <explanation>
+buy.forEach(button => {
+  button.addEventListener('click', buyClick);
+})
+close.addEventListener('click', closeBuy)
