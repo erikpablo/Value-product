@@ -25,7 +25,9 @@
         </header>
         <main>
             <div class="productPC">
-                <h2 class="titel">Promoções <img src="./icon/seta.svg" alt=""></h2>
+                <h2 class="titel">
+                    Promoções <img src="./icon/seta.svg" alt="" />
+                </h2>
                 <div class="products" id="products">
                     <div class="product">
                         <img
@@ -74,6 +76,42 @@
                         <button>Comprar</button>
                     </div>
                 </div>
+            </div>
+            <div class="buyContainer hide">
+                <div class="close">&times;</div>
+                <div class="buyProduct">
+                    <h2 class="nameProduct">Produto X</h2>
+                    <img
+                        src="https://m.media-amazon.com/images/I/61EFNhsLQ7L.__AC_SX300_SY300_QL70_ML2_.jpg"
+                        alt=""
+                    />
+                    <h2 class="valueProduct">R$ 450,97</h2>
+                </div>
+                <div class="datesProduct">
+                    <label for="comprador">Nome do Comprador:</label>
+                    <input
+                        type="text"
+                        id="comprador"
+                        placeholder="Digite seu nome"
+                    />
+
+                    <label for="parcelas">Parcelamento:</label>
+                    <select id="parcelas">
+                        <option value="1">1x sem juros</option>
+                        <option value="2">2x sem juros</option>
+                        <option value="3">3x sem juros</option>
+                        <option value="4">4x sem juros</option>
+                        <option value="5">5x sem juros</option>
+                        <option value="6">6x sem juros</option>
+                        <option value="7">7x sem juros</option>
+                        <option value="8">8x sem juros</option>
+                        <option value="9">9x sem juros</option>
+                        <option value="10">10x sem juros</option>
+                        <option value="11">11x sem juros</option>
+                        <option value="12">12x sem juros</option>
+                    </select>
+                </div>
+                <button class="btnBuy">Confirma</button>
             </div>
         </main>
         <script src="./src/main.js"></script>
