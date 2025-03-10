@@ -1,22 +1,16 @@
+import { BuyCheckout } from "./buyUtils.js"
+
 let buy = document.querySelectorAll('.product button')
 let buyContainer = document.querySelector('.buyContainer')
 let close = document.querySelector('.close')
 
-function buyClick() {
-  buyContainer.classList.remove('hide')
-  buyContainer.style.animation = 'slideOn 0.5s ease-out'
-  
-}
+let checkout = new BuyCheckout(buyContainer)
 
-function closeBuy () {
-  buyContainer.style.animation = 'slideOff 0.5s ease-out' 
+buy.forEach((button) => {
+  button.addEventListener('click', () => checkout.buyClick())
+})
 
-  buyContainer.addEventListener('animationend', () => {
-    buyContainer.classList.add('hide'); 
-  }, { once: true }); 
-}
-
-
+close.addEventListener('click', () => checkout.closeBuy())
 
 // close.addEventListener('click', () => {buyContainer.classList.toggle('hide')})
 
@@ -42,9 +36,3 @@ function closeBuy () {
 
 
 
-
-// biome-ignore lint/complexity/noForEach: <explanation>
-buy.forEach(button => {
-  button.addEventListener('click', buyClick);
-})
-close.addEventListener('click', closeBuy)
