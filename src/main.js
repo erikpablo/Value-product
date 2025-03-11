@@ -7,7 +7,7 @@ let close = document.querySelector('.close')
 let checkout = new BuyCheckout(buyContainer)
 
 buy.forEach((button) => {
-  button.addEventListener('click', () => checkout.buyClick())
+  button.addEventListener('click', (event) => checkout.buyClick(event))
 })
 
 close.addEventListener('click', () => checkout.closeBuy())
