@@ -2,6 +2,7 @@ export class BuyCheckout {
     constructor(buyContainer) {
         this.buyContainer = buyContainer
         this.modalOpen = false
+        this.option = document.querySelectorAll('.installments option')
     }
 
     buyClick(event) {
@@ -22,7 +23,49 @@ export class BuyCheckout {
         const { title, price, image } = event.target.dataset
 
         this.dataBuy(title, price, image)
+
+        this.valueProduct = parseFloat(price)
+
+        this.installments(price)
     }
+
+    installments(price) {
+
+        this.option.forEach(option => {
+            let optionValue = parseInt(option.value)
+            let calculation = (price / optionValue).toFixed(2)
+
+            option.textContent = `${optionValue}x sem juros de R$ ${calculation}`
+        })
+    }
+
+    calculationBuy() {
+
+        if(!this.valueProduct) {
+            console.log("Nenhum produto selecionado")
+            return;
+        }
+        
+        let price = this.valueProduct
+        let optionValue = parseInt(this.option.value) || 1;
+
+        let valueInstallmensts = (price / optionValue).toFixed(2)
+     
+        let monthsYear = [];
+        let date = new Date()
+     
+        for(let i = 1; i <= optionValue; i++) {
+             let newDate = new Date(date)
+             newDate.setMonth(newDate.getMonth() + i);
+             let monthsYearString = newDate.toLocaleString("pt-BR", { month: "long", year: "numeric" })
+             monthsYear.push(monthsYearString)
+        }
+
+        let buyConfirmProduct = document.querySelector('.buyConfirmProduct p')
+     
+        buyConfirmProduct.textContent = `O valor do produto é ${price}, pode ser parcelado em ${optionValue} de ${valueInstallmensts} nos meses ${monthsYear}`
+     }
+     
 
     dataBuy(title, price, image) {
         const nameProduct = document.querySelector('.nameProduct')
