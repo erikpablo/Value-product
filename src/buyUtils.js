@@ -3,6 +3,7 @@ export class BuyCheckout {
         this.buyContainer = buyContainer
         this.modalOpen = false
         this.option = document.querySelectorAll('.installments option')
+        this.purchaseMade = document.querySelector('.buyConfirmProduct')
     }
 
     buyClick(event) {
@@ -41,13 +42,21 @@ export class BuyCheckout {
 
     calculationBuy() {
 
-        if(!this.valueProduct) {
-            console.log("Nenhum produto selecionado")
+        let name = document.querySelector('.datesProduct input').value
+
+        if(!name) {
+            alert('Por gentileza, confirme o nome')
+            return
+        }
+
+        if (!this.verifyPurchase()) {
             return;
         }
         
         let price = this.valueProduct
-        let optionValue = parseInt(this.option.value) || 1;
+
+        let select = document.querySelector('.installments');
+        let optionValue = parseInt(select.value)
 
         let valueInstallmensts = (price / optionValue).toFixed(2)
      
@@ -61,11 +70,28 @@ export class BuyCheckout {
              monthsYear.push(monthsYearString)
         }
 
-        let buyConfirmProduct = document.querySelector('.buyConfirmProduct p')
+
+        this.purchaseMade.innerHTML = `
+            <span>${name}, sua compra foi aprovada!</span>
+            <p>O valor da compra foi de <strong>R$ ${price}</strong>.</p> <br>
+            <p>Parcelado em <strong>${optionValue}x de R$ ${valueInstallmensts}</strong>.</p> <br>
+            <p>Os valores serão cobrados nos meses: <br> <strong>${monthsYear.join(", ")}</strong>.</p>
+        `;
+
+     }  
      
-        buyConfirmProduct.textContent = `O valor do produto é ${price}, pode ser parcelado em ${optionValue} de ${valueInstallmensts} nos meses ${monthsYear}`
-     }
-     
+    verifyPurchase() {
+        if (!confirm('Você confirma essa compra?')) {
+            return false;
+        }
+    
+        if (!this.valueProduct) {
+            console.log("Nenhum produto selecionado");
+            return false;
+        }
+    
+        return true;
+    }
 
     dataBuy(title, price, image) {
         const nameProduct = document.querySelector('.nameProduct')
@@ -88,5 +114,6 @@ export class BuyCheckout {
             },
             { once: true }
         )
+        this.purchaseMade.textContent = ''
     }
 }
