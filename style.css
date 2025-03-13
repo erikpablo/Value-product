@@ -130,6 +130,7 @@ nav ul li img {
 
     .buyContainer {
         margin-top: 5rem;
+        overflow-y: auto;
     }
 
     .products {
