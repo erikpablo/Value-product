@@ -123,6 +123,15 @@ nav ul li img {
 
 @media (max-width: 700px) {
 
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buyContainer {
+        margin-top: 5rem;
+    }
+
     .products {
         display: flex;
         flex-direction: column;
