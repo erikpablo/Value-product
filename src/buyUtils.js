@@ -41,9 +41,8 @@ export class BuyCheckout {
     }
 
     calculationBuy() {
-
         let name = document.querySelector('.datesProduct input').value
-
+        
         if(!name) {
             alert('Por gentileza, confirme o nome')
             return
@@ -77,7 +76,7 @@ export class BuyCheckout {
             <p>Parcelado em <strong>${optionValue}x de R$ ${valueInstallmensts}</strong>.</p> <br>
             <p>Os valores serão cobrados nos meses: <br> <strong>${monthsYear.join(", ")}</strong>.</p>
         `;
-
+        
      }  
      
     verifyPurchase() {
@@ -115,5 +114,7 @@ export class BuyCheckout {
             { once: true }
         )
         this.purchaseMade.textContent = ''
+        document.querySelector('.datesProduct input').value = ""
+        document.querySelector('.installments').value = ""
     }
 }
